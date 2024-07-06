@@ -1,0 +1,25 @@
+.container {
+    height: 100%;
+    max-width: calc(9.5/10 * 100%);
+    margin: 0 auto;
+}
+
+.bckg-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+:root {
+    --main-gray: #232323;
+    --main-wheat: #EDEBEB;
+    --main-white: #FFFFFF;
+    --main-dark-gray: #ADADAD;
+}

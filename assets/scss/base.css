@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter/Inter-Regular.ttf") format("ttf");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Stengazeta";
+  src: url(fonts/stengazeta/Stengazeta-Regular.ttf);
+}
+* {
+  font-family: Inter, sans-serif;
+}
+
+.header {
+  background-color: var(--main-gray);
+  height: 75px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  box-shadow: 0 5px 10px 4px rgba(0, 0, 0, 0.8);
+}
+.header .header-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .header-wrapper .header-link {
+  color: var(--main-white);
+  font-size: 18px;
+}
+.header .header-wrapper .header-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.main {
+  margin-top: 75px;
+}
+
+.section-offer {
+  width: 100%;
+  height: 80vh;
+  background-image: url("../images/offer-bckg.png");
+  background-attachment: fixed;
+}
+.section-offer .offer-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+}
+.section-offer .offer-wrapper .offer-headline {
+  font-family: "Stengazeta";
+  color: var(--main-white);
+  font-size: 75px;
+  letter-spacing: 10px;
+}
+.section-offer .offer-wrapper .offer-link {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px 15px;
+  color: var(--main-black);
+  font-size: 16px;
+}
+
+.footer {
+  margin-top: 1000px;
+  height: 533px;
+  background-image: url("../images/footer-bckg-2.png");
+}
+.footer .footer-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.footer .footer-wrapper .footer-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.footer .footer-wrapper .footer-nav .footer-nav-item {
+  display: flex;
+  justify-content: baseline;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.footer .footer-wrapper .footer-nav .footer-nav-item .footer-nav-item-headline {
+  font-size: 24px;
+  color: var(--main-white);
+}
+.footer .footer-wrapper .footer-nav .footer-nav-item .footer-nav-item-link {
+  font-size: 19px;
+  color: var(--main-white);
+  text-align: center;
+}
+.footer .footer-wrapper .footer-copyright {
+  align-self: flex-start;
+  padding-bottom: 50px;
+  color: var(--main-dark-gray);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer .footer-wrapper .footer-copyright .copyright-text {
+  line-height: 20px;
+  width: 65%;
+}/*# sourceMappingURL=base.css.map */
