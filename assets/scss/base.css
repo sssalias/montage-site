@@ -68,6 +68,11 @@
   padding: 10px 15px;
   color: var(--main-black);
   font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
 }
 
 .footer {
