@@ -22,6 +22,7 @@
     position: fixed;
     top: 0;
     box-shadow: 0 5px 10px 4px rgba(0, 0, 0, .8);
+    z-index: 10000;
     // color: var(--main-white);
     .header-wrapper {
         height: 100%;
@@ -51,7 +52,7 @@
 
 .section-offer {
     width: 100%;
-    height: calc(8/10 * 100vh);
+    height: 650px;
     background-image: url("../images/offer-bckg.png");
     background-attachment: fixed;
 
@@ -62,6 +63,7 @@
         align-items: center;
         flex-direction: column;
         gap: 25px;
+        position: relative;
         
         .offer-headline {
             font-family: 'Stengazeta';
@@ -81,6 +83,10 @@
             gap: 10px;
             // TODO: Create medium font
             font-weight: bold;
+        }
+        .offer-arrow-down-link {
+            position: absolute;
+            bottom: 25px;
         }
     }
 }
