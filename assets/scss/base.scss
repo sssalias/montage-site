@@ -8,12 +8,21 @@
     font-family: "Stengazeta";
     src: url(fonts/stengazeta/Stengazeta-Regular.ttf);
 }
-
+@font-face {
+    font-family: 'Rhytmic';
+    src: url(fonts/rhytmic/Rhythmic.otf);
+}
+  
 
 * {
     font-family: Inter, sans-serif;
 }
 
+.section-headline {
+    font-family: Rhytmic;
+    text-transform: uppercase;
+    font-size: 64px;
+}
 
 .header {
     background-color: var(--main-gray);
@@ -46,6 +55,7 @@
 
 .main {
     margin-top: 75px;
+    position: relative;
 }
 
 
@@ -94,7 +104,6 @@
 
 
 .footer {
-    margin-top: 1000px;
     height: 533px;
     background-image: url("../images/footer-bckg-2.png");
 
