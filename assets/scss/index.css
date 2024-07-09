@@ -20,6 +20,14 @@
   text-align: center;
   line-height: 29px;
 }
+@media screen and (max-width: 960px) {
+  .section-about .about-wrapper .about-item {
+    display: none;
+  }
+  .section-about .about-wrapper .about-content {
+    border: none;
+  }
+}
 
 .section-info .info-wrapper {
   width: 100%;
@@ -71,6 +79,17 @@
 }
 .section-info .info-wrapper .info-item .info-img img {
   border-radius: 45px;
+}
+@media screen and (max-width: 1440px) {
+  .section-info .info-wrapper .info-item, .section-info .info-wrapper .reverse {
+    flex-direction: column;
+  }
+  .section-info .info-wrapper .info-content {
+    display: none;
+  }
+  .section-info .info-wrapper .info-text {
+    text-align: center;
+  }
 }
 
 .section-map {

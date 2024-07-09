@@ -50,6 +50,19 @@
             align-items: center;
             gap: 30px;
         }
+        .header-burger {
+            cursor: pointer;
+            display: none;
+        }
+
+        @media screen and (max-width: 960px) {
+            .header-nav, .header-phone {
+                display: none;
+            }
+            .header-burger {
+                display: block;
+            }
+        }
     }
 }
 
@@ -80,6 +93,7 @@
             color: var(--main-white);
             font-size: 75px;
             letter-spacing: 10px;
+            text-align: center;
         }
         .offer-link {
             background-color: white;

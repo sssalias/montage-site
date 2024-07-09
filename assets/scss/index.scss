@@ -5,7 +5,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        
         .about-content {
             position: relative;
             display: flex;
@@ -24,7 +24,17 @@
                 line-height: 29px;
             }
         }
+
+        @media screen and (max-width: 960px) {
+            .about-item {
+                display: none;
+            }
+            .about-content {
+                border: none;
+            }
+        }
     }
+    
 }
 
 
@@ -76,12 +86,26 @@
                     margin-bottom: auto;
                 }
             }
-            .info-img img {
-                border-radius: 45px;
+            .info-img {
+                img {
+                    border-radius: 45px;
+                }
+            }
+        }
+        @media screen and (max-width: 1440px) {
+            .info-item, .reverse {
+                flex-direction: column;
+            }
+            .info-content {
+                display: none;
+            }
+            .info-text {
+                text-align: center;
             }
         }
     }
 }
+
 
 
 .section-map {
