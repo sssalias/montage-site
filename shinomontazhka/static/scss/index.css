@@ -1,0 +1,93 @@
+.section-about .about-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-about .about-wrapper .about-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 75px;
+  padding: 75px 0;
+  border: 2px solid black;
+  border-left: none;
+  border-right: none;
+}
+.section-about .about-wrapper .about-content .about-text {
+  font-size: 24px;
+  text-align: center;
+  line-height: 29px;
+}
+@media screen and (max-width: 960px) {
+  .section-about .about-wrapper .about-item {
+    display: none;
+  }
+  .section-about .about-wrapper .about-content {
+    border: none;
+  }
+}
+
+.section-info .info-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 100px;
+}
+.section-info .info-wrapper .info-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+}
+.section-info .info-wrapper .reverse {
+  flex-direction: row-reverse;
+}
+.section-info .info-wrapper .info-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 75px;
+}
+.section-info .info-wrapper .info-item .info-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 45px;
+  width: 45%;
+}
+.section-info .info-wrapper .info-item .info-content .info-headline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.section-info .info-wrapper .info-item .info-content .info-headline h3 {
+  font-size: 40px;
+  font-family: Stengazeta;
+  text-transform: uppercase;
+}
+.section-info .info-wrapper .info-item .info-content .info-text {
+  font-size: 28px;
+  line-height: 34px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.section-info .info-wrapper .info-item .info-img img {
+  border-radius: 45px;
+}
+@media screen and (max-width: 1440px) {
+  .section-info .info-wrapper .info-item, .section-info .info-wrapper .reverse {
+    flex-direction: column;
+  }
+  .section-info .info-wrapper .info-content {
+    display: none;
+  }
+  .section-info .info-wrapper .info-text {
+    text-align: center;
+  }
+}/*# sourceMappingURL=index.css.map */

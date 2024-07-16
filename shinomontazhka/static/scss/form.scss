@@ -1,0 +1,164 @@
+.section-form {
+    margin-top: 75px;
+    .form-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 75px;
+
+        .form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .form-container {
+                display: flex;
+                flex-direction: column;
+                width: 45%;
+                gap: 50px;
+            }
+
+            .fieldset {
+                display: flex;
+                flex-direction: column;
+                gap: 50px;
+            }
+
+            .fieldset-headline {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+
+                h2 {
+                    font-size: 32px;
+                    font-weight: 300;
+                }
+            }
+            .fieldset-content {
+                display: flex;
+            }
+            .fieldset-content__row {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .fieldset-content__column {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .service-label {
+                display: flex;
+                cursor: pointer;
+
+                span {
+                    font-size: 22px;
+                    font-weight: 300;
+                }
+            }
+            .service-label__row {
+                flex-direction: row;
+                justify-content:flex-start;
+                align-items: center;
+                gap: 25px;
+            }
+            .service-label__column {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .form-select, .form-input {
+                width: 100%;
+                font-size: 20px;
+                border-radius: 8px;
+                border: 1px solid black;
+                background: none;
+                padding: 10px 15px;
+            }
+            .form-textarea {
+                resize: none;
+                min-height: 150px;
+            }
+            .form-checkbox {
+                height: 32px;
+                width: 32px;
+            }
+            .form-button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                padding: 10px 25px;
+                background-color: var(--main-gray);
+                border: none;
+                border-radius: 10px;
+                font-size: 20px;
+                color: white;
+                margin-left: auto;
+                margin-right: auto;
+                cursor: pointer;
+
+                transition: .4s;
+
+                &:disabled {
+                    background-color: #C8C8C8;
+                }
+            }
+            .select-label {
+                &:nth-child(1) {
+                    width: 70%;
+                }
+            }
+        }
+    }
+}
+
+
+.celender-container {
+    width: 100%;
+}
+.celender {
+    width: 100%;
+}
+table {
+    font-size: 16px;
+    width: 100%;
+    position: relative;
+    th, td {
+        padding: 15px;
+    }
+
+    .days {
+        td {
+            font-weight: bold;
+        }
+    }
+    .not-current {
+        color: gray;
+    }
+}
+
+.celender-info {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .celender-swtitch {
+        
+        button {
+            background: none;
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 15px 0 15px 15px;
+            border-radius: 8px;
+            
+        }
+    }
+}

@@ -1,10 +1,101 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Да</title>
-</head>
-<body>
-    <h1>Да</h1>
-    <p>Да</p>
-</body>
-</html>
+{% extends '../base/base.html' %}
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'scss/index.css' %}">
+{% endblock %}
+{% block content %}
+        <!-- about us -->
+        <section class="section section-about">
+            <div class="container">
+                <div class="about-wrapper">
+                    <div class="about-item">
+                        <!-- <img src="{% static 'images/index/about-right.svg'}" alt="error..."> -->
+                         <img src="{% static '/images/index/about-right.svg' %}" alt="error...">
+                    </div>
+                    <div class="about-content">
+                        <h2 class="section-headline">Кто мы?</h2>
+                        <p class="about-text">Наша команда уже 8 лет занимается сезонным хранением
+                             шин и дисков. Внимательные менеджеры, профессиональные монтажники и 
+                             аккуратные грузчики быстро составят договор, переобуют ваш автомобиль 
+                             и обеспечат аккуратное хранение ваших колес на протяжении сезона </p>
+                    </div>
+                    <div class="about-item">
+                        <img src="{% static 'images/index/about-left.svg' %}" alt="error...">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- info -->
+        <section class="section section-info">
+            <div class="container">
+                <div class="info-wrapper">
+                    <h2 class="section-headline">Почему мы?</h2>
+                    <div class="info-list">
+                        <!-- 1 -->
+                        <div class="info-item">
+                            <div class="info-content">
+                                <div class="info-headline">
+                                    <div class="info-icon">
+                                        <img src="{% static '/images/index/icons/price-icon.svg' %}" alt="error...">
+                                    </div>
+                                    <h3>Цены</h3>
+                                </div>
+                                <p class="info-text">
+                                    Наши цены конкурентны и справедливы. Любые непредвиденные или 
+                                    дополнительные расходы должны быть предварительно одобрены Вами. 
+                                    Именно так мы хотели бы, чтобы к нам относились, 
+                                    и именно так мы относятся к нашим гостям.
+                                </p>
+                            </div>
+                            <div class="info-img">
+                                <img class="img"  src="{% static '/images/index/info-1.png' %}" alt="error...">
+                            </div>
+                        </div>
+                        <!-- 2 -->
+                        <div class="info-item reverse">
+                            <div class="info-content">
+                                <div class="info-headline">
+                                    <div class="info-icon">
+                                        <img src="{% static '/images/index/icons/equp-icon.svg' %}" alt="error...">
+                                    </div>
+                                    <h3>Оборудование и обучение</h3>
+                                </div>
+                                <p class="info-text">
+                                    Наши сотрудники прошли обучение в соответствии с отраслевыми 
+                                    стандартами и используют передовые технологии. Все наши станки, 
+                                    инструменты и расходные материалы позволяют нам выполнять 
+                                    практически все самые сложные работы с вашими колесами и шинами.
+                                </p>
+                            </div>
+                            <div class="info-img">
+                                <img class="img"  src="{% static '/images/index/info-2.png' %}" alt="error...">
+                            </div>
+                        </div>
+                        <!-- 3 -->
+                        <div class="info-item">
+                            <div class="info-content">
+                                <div class="info-headline">
+                                    <div class="info-icon">
+                                        <img src="{% static '/images/index/icons/store-icon.svg' %}" alt="error...">
+                                    </div>
+                                    <h3>Ответственное хранение</h3>
+                                </div>
+                                <p class="info-text">
+                                    Мы используем адресный склад с собственным ПО для аккуратного учета и  
+                                    хранения колес. Мы знаем, как правильно хранить шины, а как колеса 
+                                    в сборе для их долгой и надежной службы. Наши стеллажи 
+                                    KIFATO собраны специально для этого.
+                                </p>
+                            </div>
+                            <div class="info-img">
+                                <img class="img" src="{% static '/images/index/info-3.png' %}" alt="error...">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

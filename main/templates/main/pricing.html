@@ -1,0 +1,204 @@
+{% extends '../base/base.html' %}
+
+{% load get_item %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'scss/pricing.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<section class="section storage-section">
+    <div class="container">
+        <div class="storage-wrapper">
+            <h2 class="section-headline">Хранение шин</h2>
+            <h3 class="section-slogan">
+                <span>Все просто. Найдите размер своих шин в таблице прайса.</span>
+                <span>Это и есть окончательная цена.</span>
+            </h3>
+
+            <h3>
+                <span>Да, и запаску мы храним</span>
+                <span><strong>бесплатно</strong></span>
+            </h3>
+            <div class="pricing-headline">
+                <span>Стоимость хранения комплекта шин/колес в сборе, 
+                    за сезон (6 месяцев + 1 месяц в подарок)</span>
+            </div>
+            <div class="table-container">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Радиус</th>
+                            {% for r in storage.radius %}
+                                <th>R{{ r }}</th>
+                            {% endfor %}
+                        </tr> 
+                        {% for key in storage.data %}
+                            <tr>
+                                <th>{{ key }}</th>
+                                {% for item in storage.data|get_item:key %}
+                                    <td>{{ item.price }}₽</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="section-end">
+        <img src="{% static 'images/pricing/section-end.png' %}" class="img" alt="(())">
+    </div>
+</section>
+
+
+
+<section class="section storage-section">
+    <div class="container">
+        <div class="storage-wrapper">
+            <h2 class="section-headline">Шиномонтаж</h2>
+            <h3 class="section-slogan">
+                <span>С монтажем тоже все просто. </span>
+                <span>Выберите прайс для своего типа автомобиля.</span>
+            </h3>
+
+            <h3 class="section-slogan">
+                <span>Но если есть неприятности с шинами, дисками или</span>
+                <span>крепежем, сообщите нам и посмотрите полный прайс.</span>
+                <span>Там же про доплаты за низкий профиль и шины RunFlet</span>
+            </h3>
+            <div class="pricing-headline">
+                <span>Легковые автомобили</span>
+            </div>
+            <div class="table-container">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Радиус</th>
+                            {% for r in light_service.radius %}
+                                <th>R{{ r }}</th>
+                            {% endfor %}
+                        </tr> 
+                        {% for key in light_service.data %}
+                            <tr>
+                                <th>{{ key }}</th>
+                                {% for item in light_service.data|get_item:key %}
+                                    <td>{{ item.price }}₽</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pricing-headline">
+                <span>Внедорожники, кроссоверы и минивэны</span>
+            </div>
+            <div class="table-container">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Радиус</th>
+                            {% for r in hard_service.radius %}
+                                <th>R{{ r }}</th>
+                            {% endfor %}
+                        </tr> 
+                        {% for key in hard_service.data %}
+                            <tr>
+                                <th>{{ key }}</th>
+                                {% for item in hard_service.data|get_item:key %}
+                                    <td>{{ item.price }}₽</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="section-end">
+        <img src="{% static 'images/pricing/section-end.png' %}" class="img" alt="(())">
+    </div>
+</section>
+
+<section class="section storage-section">
+    <div class="container">
+        <div class="storage-wrapper">
+            <h2 class="section-headline pricing-headline">Полный прайс шиномонтажа</h2>
+            <div class="table-container">
+                <table class="table">
+                    <tbody>
+                        <caption>Шиномонтаж - легковых автомобилей</caption>
+                        <tr>
+                            <th>Услуги</th>
+                            {% for r in full_light_service.radius %}
+                                <th>R{{ r }}</th>
+                            {% endfor %}
+                        </tr> 
+                        {% for key in full_light_service.data %}
+                            <tr>
+                                <th>{{ key }}</th>
+                                {% for item in full_light_service.data|get_item:key %}
+                                    <td>{{ item.price }}₽</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <table class="table">
+                    <tbody>
+                        <caption>Шиномонтаж - джипов, внедорожников, кроссоверов и минивэнов</caption>
+                        <tr>
+                            <th>Услуги</th>
+                            {% for r in full_hard_service.radius %}
+                                <th>R{{ r }}</th>
+                            {% endfor %}
+                        </tr> 
+                        {% for key in full_hard_service.data %}
+                            <tr>
+                                <th>{{ key }}</th>
+                                {% for item in full_hard_service.data|get_item:key %}
+                                    <td>{{ item.price }}₽</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="table-container">
+                <table class="table">
+                    <tbody>
+                        <caption>Доплаты и дополнительные работы (за одно колесо)</caption>
+                        {% for item in addotional_service %}
+                        <tr>
+                            <th>{{ item.name }}</th>
+                            <td>{{ item.price }}₽</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="under-table">
+                <h2>Проверка давления в шинах и подкачка - 100 руб./ автомобиль</h2>
+                <h2>Проверка балансировки - половина цены от прайса</h2>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+{% endblock %}
