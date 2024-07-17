@@ -7,6 +7,15 @@
   align-items: center;
   gap: 75px;
 }
+.section-form .form-wrapper .msg {
+  font-size: 24px;
+}
+.section-form .form-wrapper .msg__fine {
+  color: lightgreen;
+}
+.section-form .form-wrapper .msg__wrost {
+  color: red;
+}
 .section-form .form-wrapper .form {
   width: 100%;
   display: flex;
@@ -100,6 +109,7 @@
 }
 .section-form .form-wrapper .form .form-button:disabled {
   background-color: #C8C8C8;
+  cursor: auto;
 }
 .section-form .form-wrapper .form .select-label:nth-child(1) {
   width: 70%;
@@ -163,13 +173,25 @@ table .active {
   border-radius: 8px;
 }
 
-.time-container {
-  width: 100%;
+.time-container__center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.time-container__center h3 {
+  font-size: 20px;
+}
+
+.time-container__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-content: space-around;
   justify-content: space-between;
   gap: 25px;
+}
+
+.time-container {
+  width: 100%;
 }
 .time-container .time-item {
   text-align: center;
@@ -177,7 +199,12 @@ table .active {
   border-radius: 8px;
   font-size: 20px;
   cursor: pointer;
+  transition: 0.4s;
 }
 .time-container .time-item__normal {
   background-color: #E3E3E3;
+}
+.time-container .time-item__selected {
+  background-color: var(--main-gray);
+  color: white;
 }/*# sourceMappingURL=form.css.map */

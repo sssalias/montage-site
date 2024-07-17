@@ -10,11 +10,12 @@
 
 
 {% block content %}
-<section class="section section-form">
+<section class="section section-form" id="msg-data">
     <div class="container">
         <div class="form-wrapper">
             <h2 class="section-headline">Онлайн запись</h2>
-            <form class="form" method="POST">
+            <span class="msg {{ class }}">{{ msg }}</span>
+            <form action="#msg-data" class="form" method="POST">
                 {% csrf_token %}
                 <div class="form-container">
                     <fieldset class="fieldset">
@@ -22,13 +23,13 @@
                             <div class="fieldset-headline-icon">
                                 <img src="{% static 'images/form/icons/service-icon.svg' %}" alt="Error...">
                             </div>
-                            <h2>Выберите услугу</h2>
+                            <h2>Выберите услугу*</h2>
                         </div>
                         <input type="text" name="service_type" id="service-type-hidden" hidden>
                         <div class="fieldset-content fieldset-content__column" id="service-types">
 
                         </div>
-                        <input type="text" name="service" id="service-hidden" hidden>
+                        <!-- <input type="text" name="service" id="service-hidden" hidden> -->
                         <div class="fieldset-content fieldset-content__row" id="services">
                             
                         </div>
@@ -40,7 +41,7 @@
                             <div class="fieldset-headline-icon">
                                 <img src="{% static 'images/form/icons/celender-icon.svg' %}" alt="Error...">
                             </div>
-                            <h2>Выберите дату</h2>
+                            <h2>Выберите дату*</h2>
                         </div>
                         <div class="fieldset-content">
                             <div class="celender-container">
@@ -62,10 +63,10 @@
                             <div class="fieldset-headline-icon">
                                 <img src="{% static 'images/form/icons/time-icon.svg' %}" alt="Error...">
                             </div>
-                            <h2>Выберите время</h2>
+                            <h2>Выберите время*</h2>
                         </div>
                         <div class="fieldset-content">
-                            <div class="time-container" id="time">
+                            <div class="time-container time-container__grid" id="time">
 
                             </div>
                         </div>
@@ -79,14 +80,14 @@
                             <h2>Заполните форму</h2>
                         </div>                      
                         <div class="fieldset-content fieldset-content__column">
-                            <input class="form-input" type="text" name="bio" placeholder="ФИО">
-                            <input class="form-input" type="text" name="phone" placeholder="Номер телефона">
-                            <textarea class="form-input form-textarea" name="message" placeholder="Сообщение"></textarea>
+                            <input required class="form-input" type="text" name="bio" placeholder="ФИО*" id="bio-input">
+                            <input required class="form-input" type="text" name="phone" placeholder="Номер телефона*" id="phone-input">
+                            <textarea class="form-input form-textarea" name="message" placeholder="Сообщение" id="msg-input"></textarea>
                             <label class="service-label service-label__row">
-                                <input name="accept" class="form-checkbox" type="checkbox">
+                                <input name="accept" class="form-checkbox" type="checkbox" id="check-input">
                                 <span>Нажимая кнопку “Отправить”, я даю согласие на обработку персональных данных.</span>
                             </label>
-                            <button class="form-button" type="submit">
+                            <button disabled="true" class="form-button" type="submit" id="send-button">
                                 <span>Отправить</span>
                                 <img src="{% static 'images/form/icons/arrow-submit-icon.svg' %}" alt="Error...">
                             </button>
@@ -104,4 +105,5 @@
 <script src="{% static 'js/scripts/celender.js' %}"></script>
 <script src="{% static 'js/scripts/form.js' %}"></script>
 <script src="{% static 'js/scripts/datetime-form.js' %}"></script>
+<script src="{% static 'js/scripts/form-validation.js' %}"></script>
 {% endblock %}

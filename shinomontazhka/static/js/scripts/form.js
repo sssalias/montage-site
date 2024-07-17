@@ -8,6 +8,8 @@ const getServices = () => {
     axios
         .get(url)
         .then(res => {
+            renderServices(res.data.services_list[0].services, res.data.radius_list)
+            serviceTypeHiddenInput.setAttribute('value', res.data.services_list[0].type_id)
             renderServiceTypes(res.data.services_list)
             serviceTypesContainer.addEventListener('change', e => {
                 if (e.target.tagName.toLowerCase() === 'input') {
@@ -15,11 +17,7 @@ const getServices = () => {
                     renderServices(res.data.services_list.filter(el => el.type_id === id)[0].services, res.data.radius_list)
                 }
             })
-            window.addEventListener('load', e => {
-                renderServices(res.data.services_list[0].services, res.data.radius_list)
-                serviceTypeHiddenInput.setAttribute('value', res.data.services_list[0].type_id)
-                // renderServices(res.data.services_list.filter(el => el.type_id === id)[0].services)
-            })
+             // renderServices(res.data.services_list.filter(el => el.type_id === id)[0].services)
         })
         .catch(err => console.log(err))
 }
@@ -49,7 +47,7 @@ function renderServices(data, radius) {
 
 
     let html = '<label class="service-label service-label__column select-label">'
-    html += '<span>Выберите тип услуги из списка</span>'
+    html += '<span>Выберите тип услуги из списка*</span>'
     html += '<select class="form-select" name="service" id="">'
     data.forEach(el => {
         html += `<option value="${el.id}">${el.name}</option>`
@@ -63,7 +61,7 @@ function renderServices(data, radius) {
            <select class="form-select" name="radius" id="">
         `
     radius.forEach(el => {
-        html += `<option>R${el}</option>`
+        html += `<option value=${el}>R${el}</option>`
     })
     html += `
         </select>
@@ -75,4 +73,4 @@ function renderServices(data, radius) {
 }
 
 
-document.onload = getServices()
+window.onload = getServices()

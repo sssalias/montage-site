@@ -1,19 +1,11 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import *
-from datetime import date
+from datetime import date, datetime
 
 # DB services import
 from .services.get_pricing_data import get_pricing_data
 
-def product_and_service_list(request):
-    # products = Products.objects.all()
-    additional_services = AddotionalServices.objects.all()
-    context = {
-        # 'products': products,
-        'additional_services': additional_services
-    }
-    return render(request, 'product_and_service_list.html', context)
 
 def form_data(request):
     services_types = ServicesTypes.objects.all()
@@ -45,10 +37,29 @@ def index(request):
     return render(request, 'main/index.html', {})
 
 def form(request):
+    context = {}
     if request.method == 'POST':
-        data = request.POST
-        print(data)
-    return render(request, 'main/form.html', {})
+        try:
+            data = request.POST
+            service_type = ServicesTypes.objects.get(pk=data['service_type'])
+            service = Services.objects.get(pk=data['service'])
+            radius = data['radius']
+            bio = data['bio']
+            phone = data['phone']
+            date = datetime.strptime(data['date'], '%Y-%m-%d').date()
+            time = ServiceTime.objects.get(time=datetime.strptime(data['time'], '%H:%M').time())
+            message = data['message']
+            appointment = Appointments(service=service, type=service_type, 
+                                    bio=bio, radius=radius, phone=phone, date=date, 
+                                    time=time, message=message).save()
+            context['msg'] = '✔ Заявка успешно отправлена'
+            context['class'] = 'msg__fine'
+        except Exception as error:
+            print(error)
+            context['msg'] = 'Извините, что-то пошло не так. Повторите отправку заявки'
+            context['class'] = 'msg__wrost'
+    return render(request, 'main/form.html', context)
+
 
 def pricing(request):
     storage = get_pricing_data(Storage)

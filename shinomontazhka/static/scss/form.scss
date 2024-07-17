@@ -6,6 +6,17 @@
         align-items: center;
         gap: 75px;
 
+        .msg {
+            font-size: 24px;
+        }
+
+        .msg__fine {
+            color: lightgreen;
+        }
+        .msg__wrost {
+            color: red;
+        }
+
         .form {
             width: 100%;
             display: flex;
@@ -105,6 +116,7 @@
 
                 &:disabled {
                     background-color: #C8C8C8;
+                    cursor: auto;
                 }
             }
             .select-label {
@@ -185,13 +197,26 @@ table {
     }
 }
 
-.time-container {
-    width: 100%;
+.time-container__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+        font-size: 20px;
+    }
+}
+.time-container__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-content: space-around;
     justify-content: space-between;
-    gap: 25px;
+    gap: 25px;  
+}
+
+.time-container {
+    width: 100%;
+
 
     .time-item {
         text-align: center;
@@ -199,9 +224,14 @@ table {
         border-radius: 8px;
         font-size: 20px;
         cursor: pointer;
+        transition: .4s;
     }
 
     .time-item__normal {
         background-color: #E3E3E3;
+    }
+    .time-item__selected {
+        background-color: var(--main-gray);
+        color: white;
     }
 }
