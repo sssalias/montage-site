@@ -1,7 +1,7 @@
-import uuid
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import *
+from datetime import date
 
 # DB services import
 from .services.get_pricing_data import get_pricing_data
@@ -23,15 +23,31 @@ def form_data(request):
         res.append({
             'type_id': type.id, 
             'type': type.name, 
-            'services': list(service.name for service in Services.objects.filter(type_id=type.id))
+            'services': list({'id': service.id, 'name': service.name} for service in Services.objects.filter(type_id=type.id))
         })
     return JsonResponse({'services_list': res, 'radius_list': [x.radius for x in radius]})
+
+
+def time_data(request, year, month, day):
+    services_time = ServiceTime.objects.all()
+    appointments = Appointments.objects.all()
+    res = {}
+    for el in services_time:
+        res[el.time.strftime('%H:%M')] = True
+    for el in appointments:
+        if el.date == date(year, month, day):
+            res[el.time.time.strftime('%H:%M')] = False
+
+    return JsonResponse({'time': res})
 
 
 def index(request):
     return render(request, 'main/index.html', {})
 
 def form(request):
+    if request.method == 'POST':
+        data = request.POST
+        print(data)
     return render(request, 'main/form.html', {})
 
 def pricing(request):

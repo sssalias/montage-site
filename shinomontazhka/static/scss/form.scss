@@ -128,7 +128,7 @@ table {
     width: 100%;
     position: relative;
     th, td {
-        padding: 15px;
+        padding: 25px;
     }
 
     .days {
@@ -136,14 +136,36 @@ table {
             font-weight: bold;
         }
     }
+
+
+    td {
+        text-align: center;
+        span {
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+
     .not-current {
         color: gray;
+    }
+    .not-active {
+        &:hover {
+            background-color: #E3E3E3;
+        }
+    }
+    .active {
+        border-radius: 50%;
+        background-color: var(--main-gray);
+        color: white;
+        width: min-content;
     }
 }
 
 .celender-info {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -160,5 +182,26 @@ table {
             border-radius: 8px;
             
         }
+    }
+}
+
+.time-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-content: space-around;
+    justify-content: space-between;
+    gap: 25px;
+
+    .time-item {
+        text-align: center;
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .time-item__normal {
+        background-color: #E3E3E3;
     }
 }

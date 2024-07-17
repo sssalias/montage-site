@@ -1,4 +1,8 @@
-const url = 'http://127.0.0.1:8000/form/data/get'
+const url = '/form/data/get'
+
+const serviceTypesContainer =  document.querySelector('#service-types')
+const serviceTypeHiddenInput = document.querySelector('#service-type-hidden')
+const servicesContainer = document.querySelector('#services')
 
 const getServices = () => {
     axios
@@ -7,27 +11,25 @@ const getServices = () => {
             renderServiceTypes(res.data.services_list)
             serviceTypesContainer.addEventListener('change', e => {
                 if (e.target.tagName.toLowerCase() === 'input') {
-                    const id = e.target.getAttribute('id')
+                    const id = e.target.getAttribute('data-id')
                     renderServices(res.data.services_list.filter(el => el.type_id === id)[0].services, res.data.radius_list)
                 }
             })
             window.addEventListener('load', e => {
                 renderServices(res.data.services_list[0].services, res.data.radius_list)
+                serviceTypeHiddenInput.setAttribute('value', res.data.services_list[0].type_id)
                 // renderServices(res.data.services_list.filter(el => el.type_id === id)[0].services)
             })
         })
         .catch(err => console.log(err))
 }
 
-const serviceTypesContainer =  document.querySelector('#service-types')
-const servicesContainer = document.querySelector('#services')
-
 function renderServiceTypes(data) {
     let html = ''
     data.forEach( (el, i) => {
         html += `
-            <label  class="service-label service-label__row">
-                <input ${i === 0 ? "checked" : ""} name="service_type" type="radio" id="${el.type_id}">
+            <label class="service-label service-label__row">
+                <input ${i === 0 ? "checked" : ""} name="service-type-radio" type="radio" data-id="${el.type_id}">
                  <span>${el.type}</span>
             </label>
         `
@@ -36,6 +38,13 @@ function renderServiceTypes(data) {
     serviceTypesContainer.innerHTML = html
 }
 
+// hold serviceTypes 
+serviceTypesContainer.addEventListener('change', e => {
+    const id = e.target.getAttribute('data-id')
+    serviceTypeHiddenInput.setAttribute('value', id)
+})
+
+
 function renderServices(data, radius) {
 
 
@@ -43,7 +52,7 @@ function renderServices(data, radius) {
     html += '<span>Выберите тип услуги из списка</span>'
     html += '<select class="form-select" name="service" id="">'
     data.forEach(el => {
-        html += `<option>${el}</option>`
+        html += `<option value="${el.id}">${el.name}</option>`
     })
     html += '</select>'
     html += '</label>'

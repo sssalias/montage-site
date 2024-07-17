@@ -50,3 +50,13 @@ class ServicesAdmin(admin.ModelAdmin):
 @admin.register(ServicesRadius)
 class ServicesRadiusAdmin(admin.ModelAdmin):
     ...
+
+
+@admin.register(ServiceTime)
+class ServiceTimeAdmin(admin.ModelAdmin):
+    ...
+
+
+@admin.register(Appointments)
+class AppointmentsAdmin(admin.ModelAdmin):
+    ...

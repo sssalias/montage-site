@@ -24,35 +24,18 @@
                             </div>
                             <h2>Выберите услугу</h2>
                         </div>
+                        <input type="text" name="service_type" id="service-type-hidden" hidden>
                         <div class="fieldset-content fieldset-content__column" id="service-types">
-                            <label class="service-label service-label__row">
-                                <input name="service_type" type="radio">
-                                <span>Хранение шин / колес</span>
-                            </label>
 
-                            <label class="service-label service-label__row">
-                                <input name="service_type" type="radio">
-                                <span>Шиномонтаж - легковые автомобили</span>
-                            </label>
-
-                            <label class="service-label service-label__row">
-                                <input name="service_type" type="radio">
-                                <span>Шиномонтаж - Внедорожники, кроссоверы и минивэны</span>
-                            </label>
                         </div>
+                        <input type="text" name="service" id="service-hidden" hidden>
                         <div class="fieldset-content fieldset-content__row" id="services">
-                            <label class="service-label service-label__column select-label">
-                                <span>Выберите радиус</span>
-                                <select class="form-select" name="radius" id="">
-                                    <option value="">R13</option>
-                                    <option value="">R14</option>
-                                    <option value="">R15</option>
-                                </select>
-                            </label>
+                            
                         </div>
                     </fieldset>
 
                     <fieldset class="fieldset">
+                        <input type="text" name="date" id="date-hidden" hidden>
                         <div class="fieldset-headline">
                             <div class="fieldset-headline-icon">
                                 <img src="{% static 'images/form/icons/celender-icon.svg' %}" alt="Error...">
@@ -72,6 +55,21 @@
                             </div>
                         </div>
                     </fieldset>
+
+                    <fieldset class="fieldset">
+                        <input type="text" name="time" id="time-hidden" hidden>
+                        <div class="fieldset-headline">
+                            <div class="fieldset-headline-icon">
+                                <img src="{% static 'images/form/icons/time-icon.svg' %}" alt="Error...">
+                            </div>
+                            <h2>Выберите время</h2>
+                        </div>
+                        <div class="fieldset-content">
+                            <div class="time-container" id="time">
+
+                            </div>
+                        </div>
+                    </fieldset>
                     
                     <fieldset class="fieldset">
                         <div class="fieldset-headline">
@@ -81,11 +79,11 @@
                             <h2>Заполните форму</h2>
                         </div>                      
                         <div class="fieldset-content fieldset-content__column">
-                            <input class="form-input" type="text" name="bio" placeholder="ФИО" id="">
-                            <input class="form-input" type="text" name="phone" placeholder="Номер телефона" id="">
-                            <textarea class="form-input form-textarea" name="message" id="" placeholder="Сообщение"></textarea>
+                            <input class="form-input" type="text" name="bio" placeholder="ФИО">
+                            <input class="form-input" type="text" name="phone" placeholder="Номер телефона">
+                            <textarea class="form-input form-textarea" name="message" placeholder="Сообщение"></textarea>
                             <label class="service-label service-label__row">
-                                <input class="form-checkbox" type="checkbox">
+                                <input name="accept" class="form-checkbox" type="checkbox">
                                 <span>Нажимая кнопку “Отправить”, я даю согласие на обработку персональных данных.</span>
                             </label>
                             <button class="form-button" type="submit">
@@ -105,4 +103,5 @@
 {% block scripts %}
 <script src="{% static 'js/scripts/celender.js' %}"></script>
 <script src="{% static 'js/scripts/form.js' %}"></script>
+<script src="{% static 'js/scripts/datetime-form.js' %}"></script>
 {% endblock %}

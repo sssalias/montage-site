@@ -119,18 +119,36 @@ table {
   position: relative;
 }
 table th, table td {
-  padding: 15px;
+  padding: 25px;
 }
 table .days td {
   font-weight: bold;
 }
+table td {
+  text-align: center;
+}
+table td span {
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
 table .not-current {
   color: gray;
+}
+table .not-active:hover {
+  background-color: #E3E3E3;
+}
+table .active {
+  border-radius: 50%;
+  background-color: var(--main-gray);
+  color: white;
+  width: -moz-min-content;
+  width: min-content;
 }
 
 .celender-info {
   width: 100%;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -143,4 +161,23 @@ table .not-current {
   cursor: pointer;
   padding: 15px 0 15px 15px;
   border-radius: 8px;
+}
+
+.time-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: space-around;
+  justify-content: space-between;
+  gap: 25px;
+}
+.time-container .time-item {
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.time-container .time-item__normal {
+  background-color: #E3E3E3;
 }/*# sourceMappingURL=form.css.map */

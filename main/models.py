@@ -44,18 +44,23 @@ class ServicesRadius(models.Model):
     radius = models.IntegerField()
 
 
+class ServiceTime(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    time = models.TimeField()
+
+    def __str__(self):
+        return f'{self.time}'
+
+
 class Appointments(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    service_id = models.ForeignKey(Services, on_delete=models.CASCADE)
-    type_id = models.ForeignKey(ServicesTypes, on_delete=models.CASCADE)
-    service = models.TextField()
-    serivce_type = models.TextField()
+    service = models.ForeignKey(Services, on_delete=models.CASCADE)
+    type = models.ForeignKey(ServicesTypes, on_delete=models.CASCADE)
     bio = models.TextField()
     radius = models.IntegerField()
     phone = models.TextField()
     date = models.DateField()
-    time = models.TimeField()
-    
+    time = models.ForeignKey(ServiceTime, on_delete=models.CASCADE)  
 
 
 class Storage(models.Model):

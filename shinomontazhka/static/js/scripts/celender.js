@@ -25,6 +25,7 @@ var Cal = function(divId) {
     this.currMonth = d.getMonth();
     this.currYear = d.getFullYear();
     this.currDay = d.getDate();
+    this.selected = new Date(this.currYear, this.currMonth, this.currDay)
   };
   // Переход к следующему месяцу
   Cal.prototype.nextMonth = function() {
@@ -52,13 +53,21 @@ var Cal = function(divId) {
   Cal.prototype.showcurr = function() {
     this.showMonth(this.currYear, this.currMonth);
   };
-  Cal.prototype.getClick = function() {
+  Cal.prototype.getClick = function(render) {
     const block = document.getElementById(this.divId)
     block.addEventListener('click', event => {
-      if (event.target.className === 'normal') {
+      if (event.target.className === 'not-active') {
         // TODO: logic here!!!!!!!
-        const selectedDate = new Date(this.currYear, this.currMonth, event.target.innerText)
-        console.log(selectedDate)
+        const el = document.querySelector('span.active')
+        if (el) {
+          el.classList.remove('active')
+          el.classList.add('not-active')
+        }
+        event.target.classList.remove('not-active')
+        event.target.classList.add('active')
+        const selectedDay = event.target.innerText
+        const selectedDate = new Date(this.currYear, this.currMonth + 1, selectedDay)
+        render(this.currYear, this.currMonth + 1, selectedDay)
       }
     })
   }
@@ -89,7 +98,7 @@ var Cal = function(divId) {
       var dow = new Date(y, m, i).getDay();
       // Начать новую строку в понедельник
       if ( dow == 1 ) {
-        html += '<tr>';
+        html += '<tr class="counts">';
       }
       // Если первый день недели не понедельник показать последние дни предыдущего месяца
       else if ( i == 1 ) {
@@ -105,9 +114,9 @@ var Cal = function(divId) {
       var chkY = chk.getFullYear();
       var chkM = chk.getMonth();
       if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
-        html += '<td class="today">' + i + '</td>';
+        html += '<td class="today">' + `<span class="active">${i}</span>` + '</td>';
       } else {
-        html += '<td class="normal">' + i + '</td>';
+        html += '<td class="normal">' + `<span class="not-active">${i}</span>` + '</td>';
       }
       // закрыть строку в воскресенье
       if ( dow == 0 ) {
@@ -130,17 +139,6 @@ var Cal = function(divId) {
   };
   // При загрузке окна
   window.onload = function() {
-    // Начать календарь
-    var c = new Cal("divCal");			
-    c.showcurr();
-    // Привязываем кнопки «Следующий» и «Предыдущий»
-    getId('btnNext').onclick = function() {
-      c.nextMonth();
-    };
-    getId('btnPrev').onclick = function() {
-      c.previousMonth();
-    };
-    c.getClick()
   }
   // Получить элемент по id
   function getId(id) {
@@ -149,3 +147,14 @@ var Cal = function(divId) {
 
 
 
+// Начать календарь
+var celender = new Cal("divCal");	
+celender.showcurr();
+// Привязываем кнопки «Следующий» и «Предыдущий»
+getId('btnNext').onclick = function() {
+  celender.nextMonth();
+};
+getId('btnPrev').onclick = function() {
+  celender.previousMonth();
+};
+// celender.getClick()
