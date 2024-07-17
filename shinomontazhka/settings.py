@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-_%5y2qbd-aq#*-1d%s1-of(lv5_s$7!17d4iev*m2*p(5dy7tz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*'
+]
 
 
 # Application definition
@@ -77,6 +79,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:8000',
+    'https://69cb-212-3-142-77.ngrok-free.app'
 ]
 
 WSGI_APPLICATION = 'shinomontazhka.wsgi.application'
@@ -92,6 +95,8 @@ DATABASES = {
     }
 }
 
+
+CSRF_TRUSTED_ORIGINS = ['https://69cb-212-3-142-77.ngrok-free.app']
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

@@ -152,6 +152,7 @@
 .footer .footer-wrapper .footer-copyright .copyright-text {
   line-height: 20px;
   width: 65%;
+  color: var(--main-light-gray);
 }
 
 .section-map {
