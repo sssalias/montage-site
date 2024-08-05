@@ -22,6 +22,30 @@
 </head>
 <body>
 
+    <div class="modal-wrapper modal-wrapper__inactive" id="modal-wrapper">
+        <div class="modal-menu-container modal-menu-container__inactive" id="modal-container">
+            <div class="modal-menu-wrapper">
+                <button class="modal-close-button" id="close-menu-button">
+                    <img src="{% static '/images/icons/close-icon.svg' %}" alt="error...">
+                </button>
+                <div class="logo">
+                    <a class="menu-link" href="{% url 'index' %}">ЛОГО</a>
+                </div>
+                <nav class="menu-nav">
+                    <a class="menu-link" href="{% url 'pricing' %}">Хранение шин</a>
+                    <a class="menu-link" href="{% url 'pricing' %}">Шиномонтаж</a>
+                    <a class="menu-link" href="{% url 'pricing' %}">Цены</a>
+                    <a class="menu-link" href="{% url 'form' %}">Онлайн запись</a>
+                    <a class="menu-link"href="">Контакты</a>
+                </nav>
+
+                <div class="menu-phone">
+                    <span class="menu-link">ТЕЛЕФОН</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="header">
         <div class="container">
             <div class="header-wrapper">
@@ -41,10 +65,10 @@
                 <div class="header-phone">
                     <span class="header-link">ТЕЛЕФОН</span>
                 </div>
-
-                <div class="header-burger">
+                
+                <button class="header-burger" id="open-menu-button">
                     <img src="{% static '/images/icons/burger-icon.svg' %}" alt="error...">
-                </div>
+                </button>
             </div>
         </div>
     </header>
@@ -115,6 +139,7 @@
 
     <script src="{% static '/js/scripts/arrow-animataion.js' %}"></script>
     <script src="{% static '/js/scripts/api-map.js' %}"></script>
+    <script src="{% static '/js/scripts/menu-burger.js' %}"></script>
 
     {% block scripts %}
     {% endblock %}

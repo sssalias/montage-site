@@ -1,3 +1,6 @@
+@import "mixins/font";
+
+
 @font-face {
     font-family: "Inter";
     src: url(fonts/inter/Inter-Regular.ttf);
@@ -20,17 +23,23 @@
 .section-headline {
     font-family: Rhytmic;
     text-transform: uppercase;
-    font-size: 64px;
+    // font-size: 64px;
+    @include adaptive-font(64, 40);
+}
+
+.header-link, .menu-link {
+    color: var(--main-white);
+    font-size: 18px;
 }
 
 .header {
     background-color: var(--main-gray);
     height: 75px;
-    width: 100%;
+    width: 100vw;
     position: fixed;
     top: 0;
     box-shadow: 0 5px 10px 4px rgba(0, 0, 0, .8);
-    z-index: 10000;
+    z-index: 2;
     // color: var(--main-white);
     .header-wrapper {
         height: 100%;
@@ -39,10 +48,6 @@
         justify-content: space-between;
         align-items: center;
 
-        .header-link {
-            color: var(--main-white);
-            font-size: 18px;
-        }
         .header-nav {
             display: flex;
             justify-content: center;
@@ -52,6 +57,8 @@
         .header-burger {
             cursor: pointer;
             display: none;
+            background: none;
+            border: none;
         }
 
         @media screen and (max-width: 960px) {
@@ -91,9 +98,13 @@
         .offer-headline {
             font-family: 'Stengazeta';
             color: var(--main-white);
-            font-size: 75px;
+            // font-size: 75px;
+            
             letter-spacing: 10px;
             text-align: center;
+            @include adaptive-font(75, 40);
+            
+            
         }
         .offer-link {
             background-color: white;
@@ -114,6 +125,11 @@
             background: none;
             border: none;
             cursor: pointer;
+        }
+        @media screen and (max-width: 600px) {
+            .offer-headline {
+                letter-spacing: 0;
+            }
         }
     }
 }
@@ -147,15 +163,16 @@
                 gap: 15px;
 
                 .footer-nav-item-headline {
-                    font-size: 24px;
                     color: var(--main-white);
+                    @include adaptive-font(24, 18)
                 }
                 .footer-nav-item-link {
-                    font-size: 19px;
                     color: var(--main-white);
                     text-align: center;
+                    @include adaptive-font(19, 12);
                 }
             }
+            
         }
 
         .footer-copyright {
@@ -167,9 +184,11 @@
             gap: 10px;
 
             .copyright-text {
+                font-weight: 100;
                 line-height: 20px;
                 width: 65%;
                 color: var(--main-light-gray);
+                @include adaptive-font(16, 12)
             }
         }
     }
@@ -198,8 +217,6 @@
     flex-direction: column;
     align-items: center;
 
-    font-size: 24px;
-
     background: rgba(255, 255, 255, 0.32);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -207,10 +224,79 @@
     -webkit-backdrop-filter: blur(10.7px);
     border: 1px solid rgba(255, 255, 255, 0.64);
 
+    @include adaptive-font(24, 18);
+
     h3 {
         font-weight: 100;
     }
     h3, strong {
         text-align: center;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 50%;
+        padding: 25px 50px;
+    }
+}
+
+.modal-wrapper__active {
+    background-color: rgba(0, 0, 0, .6);
+    pointer-events: all;
+}
+
+.modal-wrapper__inactive {
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: none;
+}
+
+
+
+.modal-wrapper {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 3;
+    transition: .2s;
+
+    .modal-menu-container__active {
+        transform: translateX(0);
+    }
+
+    .modal-menu-container__inactive {
+        transform: translateX(100%);
+    }
+
+    .modal-menu-container {
+        height: 100%;
+        width: 250px;
+        background-color: var(--main-gray);
+        float: right;
+        transition: .4s;
+
+        .modal-menu-wrapper {
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .logo {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .menu-nav {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .menu-phone {
+                margin-top: auto;
+            }
+            .modal-close-button {
+                position: absolute;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
     }
 }

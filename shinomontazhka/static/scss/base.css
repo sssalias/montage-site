@@ -18,17 +18,22 @@
 .section-headline {
   font-family: Rhytmic;
   text-transform: uppercase;
-  font-size: 64px;
+  font-size: calc(40px + 24 * (100vw - 320px) / 1280);
+}
+
+.header-link, .menu-link {
+  color: var(--main-white);
+  font-size: 18px;
 }
 
 .header {
   background-color: var(--main-gray);
   height: 75px;
-  width: 100%;
+  width: 100vw;
   position: fixed;
   top: 0;
   box-shadow: 0 5px 10px 4px rgba(0, 0, 0, 0.8);
-  z-index: 10000;
+  z-index: 2;
 }
 .header .header-wrapper {
   height: 100%;
@@ -36,10 +41,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.header .header-wrapper .header-link {
-  color: var(--main-white);
-  font-size: 18px;
 }
 .header .header-wrapper .header-nav {
   display: flex;
@@ -50,6 +51,8 @@
 .header .header-wrapper .header-burger {
   cursor: pointer;
   display: none;
+  background: none;
+  border: none;
 }
 @media screen and (max-width: 960px) {
   .header .header-wrapper .header-nav, .header .header-wrapper .header-phone {
@@ -83,9 +86,9 @@
 .section-offer .offer-wrapper .offer-headline {
   font-family: "Stengazeta";
   color: var(--main-white);
-  font-size: 75px;
   letter-spacing: 10px;
   text-align: center;
+  font-size: calc(40px + 35 * (100vw - 320px) / 1280);
 }
 .section-offer .offer-wrapper .offer-link {
   background-color: white;
@@ -105,6 +108,11 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+  .section-offer .offer-wrapper .offer-headline {
+    letter-spacing: 0;
+  }
 }
 
 .footer {
@@ -133,13 +141,13 @@
   gap: 15px;
 }
 .footer .footer-wrapper .footer-nav .footer-nav-item .footer-nav-item-headline {
-  font-size: 24px;
   color: var(--main-white);
+  font-size: calc(18px + 6 * (100vw - 320px) / 1280);
 }
 .footer .footer-wrapper .footer-nav .footer-nav-item .footer-nav-item-link {
-  font-size: 19px;
   color: var(--main-white);
   text-align: center;
+  font-size: calc(12px + 7 * (100vw - 320px) / 1280);
 }
 .footer .footer-wrapper .footer-copyright {
   align-self: flex-start;
@@ -150,9 +158,11 @@
   gap: 10px;
 }
 .footer .footer-wrapper .footer-copyright .copyright-text {
+  font-weight: 100;
   line-height: 20px;
   width: 65%;
   color: var(--main-light-gray);
+  font-size: calc(12px + 4 * (100vw - 320px) / 1280);
 }
 
 .section-map {
@@ -173,17 +183,78 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  font-size: 24px;
   background: rgba(255, 255, 255, 0.32);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10.7px);
   -webkit-backdrop-filter: blur(10.7px);
   border: 1px solid rgba(255, 255, 255, 0.64);
+  font-size: calc(18px + 6 * (100vw - 320px) / 1280);
 }
 .banner h3 {
   font-weight: 100;
 }
 .banner h3, .banner strong {
   text-align: center;
+}
+@media screen and (max-width: 600px) {
+  .banner {
+    width: 50%;
+    padding: 25px 50px;
+  }
+}
+
+.modal-wrapper__active {
+  background-color: rgba(0, 0, 0, 0.6);
+  pointer-events: all;
+}
+
+.modal-wrapper__inactive {
+  background-color: rgba(0, 0, 0, 0);
+  pointer-events: none;
+}
+
+.modal-wrapper {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 3;
+  transition: 0.2s;
+}
+.modal-wrapper .modal-menu-container__active {
+  transform: translateX(0);
+}
+.modal-wrapper .modal-menu-container__inactive {
+  transform: translateX(100%);
+}
+.modal-wrapper .modal-menu-container {
+  height: 100%;
+  width: 250px;
+  background-color: var(--main-gray);
+  float: right;
+  transition: 0.4s;
+}
+.modal-wrapper .modal-menu-container .modal-menu-wrapper {
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.modal-wrapper .modal-menu-container .modal-menu-wrapper .logo {
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal-wrapper .modal-menu-container .modal-menu-wrapper .menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.modal-wrapper .modal-menu-container .modal-menu-wrapper .menu-phone {
+  margin-top: auto;
+}
+.modal-wrapper .modal-menu-container .modal-menu-wrapper .modal-close-button {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
 }/*# sourceMappingURL=base.css.map */

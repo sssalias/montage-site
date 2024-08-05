@@ -16,9 +16,9 @@
   border-right: none;
 }
 .section-about .about-wrapper .about-content .about-text {
-  font-size: 24px;
   text-align: center;
   line-height: 29px;
+  font-size: calc(18px + 6 * (100vw - 320px) / 1280);
 }
 @media screen and (max-width: 960px) {
   .section-about .about-wrapper .about-item {
@@ -60,6 +60,16 @@
   gap: 45px;
   width: 45%;
 }
+@media screen and (max-width: 1440px) {
+  .section-info .info-wrapper .info-item .info-content {
+    align-items: center;
+  }
+}
+@media screen and (max-width: 600px) {
+  .section-info .info-wrapper .info-item .info-content {
+    width: 100%;
+  }
+}
 .section-info .info-wrapper .info-item .info-content .info-headline {
   display: flex;
   justify-content: center;
@@ -67,27 +77,27 @@
   gap: 15px;
 }
 .section-info .info-wrapper .info-item .info-content .info-headline h3 {
-  font-size: 40px;
   font-family: Stengazeta;
   text-transform: uppercase;
+  font-size: calc(30px + 10 * (100vw - 320px) / 1280);
 }
 .section-info .info-wrapper .info-item .info-content .info-text {
-  font-size: 28px;
   line-height: 34px;
   margin-top: auto;
   margin-bottom: auto;
+  font-size: calc(16px + 12 * (100vw - 320px) / 1280);
 }
 .section-info .info-wrapper .info-item .info-img img {
   border-radius: 45px;
 }
 @media screen and (max-width: 1440px) {
   .section-info .info-wrapper .info-item, .section-info .info-wrapper .reverse {
+    align-items: center;
     flex-direction: column;
   }
-  .section-info .info-wrapper .info-content {
-    display: none;
-  }
   .section-info .info-wrapper .info-text {
+    flex-grow: 1;
+    line-height: 0;
     text-align: center;
   }
 }/*# sourceMappingURL=index.css.map */
