@@ -7,7 +7,7 @@
 }
 .pricing-headline span {
   font-weight: bolder;
-  font-size: calc(20px + 12 * (100vw - 320px) / 1280);
+  font-size: calc(20px + 12 * ((100vw - 320px) / 1280));
 }
 
 .pricing-headline__fonted {
@@ -27,7 +27,7 @@
 .storage-section .storage-wrapper h3 {
   text-align: center;
   font-weight: 100;
-  font-size: calc(20px + 12 * (100vw - 320px) / 1280);
+  font-size: calc(20px + 12 * ((100vw - 320px) / 1280));
 }
 .storage-section .storage-wrapper .section-slogan {
   display: flex;
@@ -46,7 +46,7 @@
   text-align: center;
   font-weight: 100;
   line-height: 39px;
-  font-size: calc(20px + 12 * (100vw - 320px) / 1280);
+  font-size: calc(20px + 12 * ((100vw - 320px) / 1280));
 }
 .storage-section .section-end {
   height: 250px;
@@ -67,10 +67,11 @@
   border: 1px solid black;
   padding: 15px 0;
   text-align: center;
-  font-size: calc(16px + 8 * (100vw - 320px) / 1280);
+  font-size: calc(8px + 16 * ((100vw - 320px) / 1280));
 }
 .table-container .table caption {
   font-weight: bold;
   padding: 20px 0;
-  font-size: calc(20px + 12 * (100vw - 320px) / 1280);
-}/*# sourceMappingURL=pricing.css.map */
+  font-size: calc(20px + 12 * ((100vw - 320px) / 1280));
+}
+/*# sourceMappingURL=pricing.css.map */

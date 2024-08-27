@@ -34,10 +34,12 @@ def time_data(request, year, month, day):
 
 
 def index(request):
-    return render(request, 'main/index.html', {})
+    return render(request, 'main/index.html', {'title': 'Главная'})
 
 def form(request):
-    context = {}
+    context = {
+        'title': 'Оставить заявку'
+    }
     if request.method == 'POST':
         try:
             data = request.POST
@@ -71,6 +73,7 @@ def pricing(request):
     print(addotional_service)
 
     return render(request, 'main/pricing.html', {
+        'title': 'Присинг',
         'storage': storage,
         'light_service': light_service,
         'hard_service': hard_service,
