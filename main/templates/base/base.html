@@ -55,9 +55,9 @@
                 </div>
 
                 <nav class="header-nav">
-                    <a class="header-link" href="{% url 'pricing' %}">Хранение шин</a>
-                    <a class="header-link" href="{% url 'pricing' %}">Шиномонтаж</a>
-                    <a class="header-link" href="{% url 'pricing' %}">Цены</a>
+                    <a class="header-link" href="{% url 'pricing' %}#storage">Хранение шин</a>
+                    <a class="header-link" href="{% url 'pricing' %}#service">Шиномонтаж</a>
+                    <a class="header-link" href="{% url 'pricing' %}#price">Цены</a>
                     <a class="header-link" href="{% url 'form' %}">Онлайн запись</a>
                     <a class="header-link"href="">Контакты</a>
                 </nav>
@@ -80,7 +80,7 @@
                     <h2 class="offer-headline">Сезонное хранение шин и колес</h2>
                     <h2 class="offer-headline">Профессиональный шиномонтаж</h2>
                     <a href="{% url 'form' %}" class="offer-link">
-                        <span>Оставить заявку</span>
+                        <span>Записаться</span>
                         <div class="offer-img">
                             <img src="{% static '/images/icons/arrow-right-icon.svg' %}" alt="error...">
                         </div>
@@ -140,6 +140,8 @@
     <script src="{% static '/js/scripts/arrow-animataion.js' %}"></script>
     <script src="{% static '/js/scripts/api-map.js' %}"></script>
     <script src="{% static '/js/scripts/menu-burger.js' %}"></script>
+
+    <script type="text/javascript" src="https://w1207222.yclients.com/widgetJS" charset="UTF-8"></script>ы
 
     {% block scripts %}
     {% endblock %}

@@ -8,7 +8,10 @@
     text-align: center;
     span {
         font-weight: bolder;
-        @include adaptive-font(32, 20);
+        @include adaptive-font(26, 20);
+    }
+    @media screen and (max-width: 600px) {
+        padding: 25px 50px;
     }
 }
 
@@ -29,9 +32,9 @@
 
         h3 {
             // font-size: 32px;
-            text-align: center;
+            text-alsign: center;
             font-weight: 100;
-            @include adaptive-font(32, 20);
+            @include adaptive-font(26, 20);
         }
         .section-slogan {
             display: flex;
@@ -51,7 +54,7 @@
                 // font-size: 32px;
                 font-weight: 100;
                 line-height: 39px;
-                @include adaptive-font(32, 20);
+                @include adaptive-font(26, 20);
             }
         }
     }
@@ -75,7 +78,7 @@
             // font-size: 24px;
             padding: 15px 0;
             text-align: center;
-            @include adaptive-font(24, 8);
+            @include adaptive-font(18, 8);
         }
         caption {
             // font-size: 32px;

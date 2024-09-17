@@ -7,7 +7,12 @@
 }
 .pricing-headline span {
   font-weight: bolder;
-  font-size: calc(20px + 12 * ((100vw - 320px) / 1280));
+  font-size: calc(20px + 6 * ((100vw - 320px) / 1280));
+}
+@media screen and (max-width: 600px) {
+  .pricing-headline {
+    padding: 25px 50px;
+  }
 }
 
 .pricing-headline__fonted {
@@ -25,9 +30,9 @@
   gap: 50px;
 }
 .storage-section .storage-wrapper h3 {
-  text-align: center;
+  text-alsign: center;
   font-weight: 100;
-  font-size: calc(20px + 12 * ((100vw - 320px) / 1280));
+  font-size: calc(20px + 6 * ((100vw - 320px) / 1280));
 }
 .storage-section .storage-wrapper .section-slogan {
   display: flex;
@@ -46,7 +51,7 @@
   text-align: center;
   font-weight: 100;
   line-height: 39px;
-  font-size: calc(20px + 12 * ((100vw - 320px) / 1280));
+  font-size: calc(20px + 6 * ((100vw - 320px) / 1280));
 }
 .storage-section .section-end {
   height: 250px;
@@ -67,7 +72,7 @@
   border: 1px solid black;
   padding: 15px 0;
   text-align: center;
-  font-size: calc(8px + 16 * ((100vw - 320px) / 1280));
+  font-size: calc(8px + 10 * ((100vw - 320px) / 1280));
 }
 .table-container .table caption {
   font-weight: bold;
