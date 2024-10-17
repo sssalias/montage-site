@@ -1,0 +1,322 @@
+@import "mixins/font";
+
+
+@font-face {
+    font-family: "Inter";
+    src: url(fonts/inter/Inter-Regular.ttf);
+}
+@font-face {
+    font-family: "Stengazeta";
+    src: url(fonts/stengazeta/Stengazeta-Regular.ttf);
+}
+@font-face {
+    font-family: 'Rhytmic';
+    src: url(fonts/rhytmic/Rhythmic.otf);
+}
+  
+
+* {
+    font-family: Inter, sans-serif;
+    scroll-behavior: smooth;
+}
+
+.section-headline {
+    font-family: Rhytmic;
+    text-transform: uppercase;
+    // font-size: 64px;
+    @include adaptive-font(64, 40);
+}
+
+.header-link, .menu-link {
+    color: var(--main-white);
+    font-size: 18px;
+}
+
+.header {
+    background-color: var(--main-gray);
+    height: 75px;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 5px 10px 4px rgba(0, 0, 0, .8);
+    z-index: 2;
+    // color: var(--main-white);
+    .header-wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .header-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .header-burger {
+            cursor: pointer;
+            display: none;
+            background: none;
+            border: none;
+        }
+
+        @media screen and (max-width: 960px) {
+            .header-nav, .header-phone {
+                display: none;
+            }
+            .header-burger {
+                display: block;
+            }
+        }
+    }
+}
+
+.main {
+    margin-top: 75px 0;
+    position: relative;
+}
+
+
+
+.section-offer {
+    width: 100%;
+    // height: 650px;
+    height: 100vh;
+    background-image: url("../images/offer-bckg.png");
+    background-attachment: fixed;
+
+    .offer-wrapper {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 25px;
+        position: relative;
+        
+        .offer-headline {
+            font-family: 'Stengazeta';
+            color: var(--main-white);
+            // font-size: 75px;
+            width: 100%;
+            letter-spacing: 10px;
+            text-align: center;
+            @include adaptive-font(75, 40);
+            
+            
+        }
+        .offer-link {
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px 15px;
+            color: var(--main-black);
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            // TODO: Create medium font
+            font-weight: bold;
+        }
+        .offer-arrow-down-link {
+            position: absolute;
+            bottom: 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        @media screen and (max-width: 600px) {
+            .offer-headline {
+                letter-spacing: 0;
+            }
+        }
+    }
+}
+
+
+
+.footer {
+    height: 600px;
+    background-image: url("../images/footer-bckg-2.png");
+    padding: 100px;
+
+    .footer-wrapper {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+
+        .footer-nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: auto;
+            margin-bottom: auto;
+
+            .footer-nav-item {
+                
+                display: flex;
+                justify-content: baseline;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+
+                .footer-nav-item-headline {
+                    color: var(--main-white);
+                    @include adaptive-font(24, 18)
+                }
+                .footer-nav-item-link {
+                    color: var(--main-white);
+                    text-align: center;
+                    @include adaptive-font(19, 12);
+                }
+            }
+            
+        }
+
+        .footer-copyright {
+            align-self: flex-start;
+            color: var(--main-dark-gray);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 25px;
+
+            .copyright-text {
+                font-weight: 100;
+                line-height: 20px;
+                width: 65%;
+                color: var(--main-light-gray);
+                @include adaptive-font(16, 12)
+            }
+        }
+    }
+}
+
+.section-map {
+    margin-top: 100px;
+    width: 100%;
+    height: 400px;
+}
+
+.banner {
+    position: absolute;
+    left: 50%;
+    bottom: -75px;
+    transform: translateX(-50%);
+    z-index: 1;
+    
+    width: 30%;
+
+    padding: 50px 75px;
+
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.32);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.7px);
+    -webkit-backdrop-filter: blur(10.7px);
+    border: 1px solid rgba(255, 255, 255, 0.64);
+
+    @include adaptive-font(24, 18);
+
+    h3 {
+        font-weight: 100;
+    }
+    h3, strong {
+        text-align: center;
+    }
+
+    @media screen and (max-width: 600px) {
+        // width: 50%;
+        // padding: 25px 50px;
+        opacity: 0;
+    }
+}
+
+.modal-wrapper__active {
+    background-color: rgba(0, 0, 0, .6);
+    pointer-events: all;
+}
+
+.modal-wrapper__inactive {
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: none;
+}
+
+
+
+.modal-wrapper {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 3;
+    transition: .2s;
+
+    .modal-menu-container__active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .modal-menu-container__inactive {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    .modal-menu-container {
+        height: 100%;
+        width: 250px;
+        background-color: var(--main-gray);
+        float: right;
+        transition: .4s;
+
+        .modal-menu-wrapper {
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .logo {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .menu-nav {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .menu-phone {
+                margin-top: auto;
+            }
+            .modal-close-button {
+                position: absolute;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.yButtonBackground {
+    background-color: #FE7B03 !important;
+    color: #FE7B03 !important;
+}
+
+.yButtonWave {
+    border-color: #FE7B03 !important;
+    color: #FE7B03 !important;
+}
+
+@media screen and (max-width: 600px) {
+    .footer-navigation, .footer-address {
+        display: none !important;
+    }
+}

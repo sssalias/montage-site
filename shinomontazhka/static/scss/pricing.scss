@@ -76,9 +76,9 @@
         td, th {
             border: 1px solid black;
             // font-size: 24px;
-            padding: 15px 0;
+            padding: 15px 5px;
             text-align: center;
-            @include adaptive-font(18, 8);
+            @include adaptive-font(16, 8);
         }
         caption {
             // font-size: 32px;

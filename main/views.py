@@ -36,6 +36,9 @@ def time_data(request, year, month, day):
 def index(request):
     return render(request, 'main/index.html', {'title': 'Главная'})
 
+def contacts(request):
+    return render(request, 'main/contacts.html', {'title': 'Контакты'})
+
 def form(request):
     context = {
         'title': 'Оставить заявку'

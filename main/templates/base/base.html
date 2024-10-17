@@ -29,14 +29,16 @@
                     <img src="{% static '/images/icons/close-icon.svg' %}" alt="error...">
                 </button>
                 <div class="logo">
-                    <a class="menu-link" href="{% url 'index' %}">ЛОГО</a>
+                    <a class="menu-link" href="{% url 'index' %}">
+                        <img src="{% static '/images/logo.png' %}" alt="">
+                    </a>
                 </div>
                 <nav class="menu-nav">
                     <a class="menu-link" href="{% url 'pricing' %}">Хранение шин</a>
                     <a class="menu-link" href="{% url 'pricing' %}">Шиномонтаж</a>
                     <a class="menu-link" href="{% url 'pricing' %}">Цены</a>
-                    <a class="menu-link" href="{% url 'form' %}">Онлайн запись</a>
-                    <a class="menu-link"href="">Контакты</a>
+                    <!-- <a class="menu-link" href="{% url 'form' %}">Онлайн запись</a> -->
+                    <a class="menu-link" href="{% url 'contacts' %}"">Контакты</a>
                 </nav>
 
                 <div class="menu-phone">
@@ -51,15 +53,17 @@
             <div class="header-wrapper">
                 
                 <div class="logo">
-                    <a class="header-link" href="{% url 'index' %}">ЛОГО</a>
+                    <a class="header-link" href="{% url 'index' %}">
+                        <img src="{% static '/images/logo.png' %}" alt="">
+                    </a>
                 </div>
 
                 <nav class="header-nav">
                     <a class="header-link" href="{% url 'pricing' %}#storage">Хранение шин</a>
                     <a class="header-link" href="{% url 'pricing' %}#service">Шиномонтаж</a>
                     <a class="header-link" href="{% url 'pricing' %}#price">Цены</a>
-                    <a class="header-link" href="{% url 'form' %}">Онлайн запись</a>
-                    <a class="header-link"href="">Контакты</a>
+                    <!-- <a class="header-link" href="{% url 'form' %}">Онлайн запись</a> -->
+                    <a class="header-link" href="{% url 'contacts' %}">Контакты</a>
                 </nav>
                 
                 <div class="header-phone">
@@ -77,14 +81,16 @@
         <section class="section section-offer bckg-img">
             <div class="container">
                 <div class="offer-wrapper">
-                    <h2 class="offer-headline">Сезонное хранение шин и колес</h2>
-                    <h2 class="offer-headline">Профессиональный шиномонтаж</h2>
-                    <a href="{% url 'form' %}" class="offer-link">
+                    <div class="offer-text">
+                        <h2 class="offer-headline">Сезонное хранение шин и колес</h2>
+                        <h2 class="offer-headline">Профессиональный шиномонтаж</h2>
+                    </div>
+                    <!-- <a href="{% url 'form' %}" class="offer-link">
                         <span>Записаться</span>
                         <div class="offer-img">
                             <img src="{% static '/images/icons/arrow-right-icon.svg' %}" alt="error...">
                         </div>
-                    </a>
+                    </a> -->
                     <button class="offer-arrow-down-link" type="button">
                         <div class="offer-arrow-down">
                             <img src="{% static '/images/icons/arrow-down-icon.svg' %}" alt="error...">
@@ -97,10 +103,10 @@
         {% endblock %}
         <!-- map -->
         <section class="section section-map" id="map">
-            <div class="banner">
+            <!-- <div class="banner">
                 <h3>ВСЕ, ЧТО СВЯЗАНО С ДИСКАМИ, ШИНАМИ И КОЛЕСНЫМИ ДИСКАМИ, </h3>
                 <strong>ВСЕ ЭТО В ОДНОМ МЕСТЕ</strong>
-            </div>
+            </div> -->
         </section>        
     </main>
 
@@ -108,7 +114,7 @@
         <div class="container">
             <div class="footer-wrapper">
                 <nav class="footer-nav">
-                    <div class="footer-nav-item">
+                    <div class="footer-nav-item footer-navigation">
                         <h3 class="footer-nav-item-headline">Навигация</h3>
                         <a class="footer-nav-item-link" href="{% url 'pricing' %}">Хранение шин</a>
                         <a class="footer-nav-item-link" href="{% url 'pricing' %}">Шиномонтаж</a>
@@ -120,7 +126,7 @@
                         <a class="footer-nav-item-link">Вторник-воскресенье с 9:00 до 21:00</a>
                         <a class="footer-nav-item-link">Понедельник работа только с юридическими лицами.</a>
                     </div>
-                    <div class="footer-nav-item">
+                    <div class="footer-nav-item footer-address">
                         <h3 class="footer-nav-item-headline">Адрес</h3>
                         <a class="footer-nav-item-link">Моховая улица, д 15</a>
                     </div>
@@ -141,7 +147,7 @@
     <script src="{% static '/js/scripts/api-map.js' %}"></script>
     <script src="{% static '/js/scripts/menu-burger.js' %}"></script>
 
-    <script type="text/javascript" src="https://w1207222.yclients.com/widgetJS" charset="UTF-8"></script>ы
+    <script type="text/javascript" src="https://w1207222.yclients.com/widgetJS" charset="UTF-8"></script>
 
     {% block scripts %}
     {% endblock %}
