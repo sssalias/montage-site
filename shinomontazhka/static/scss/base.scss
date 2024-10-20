@@ -136,6 +136,9 @@
 
 
 
+
+
+
 .footer {
     background-image: url("../images/footer-bckg-2.png");
     padding: 70px;
@@ -197,7 +200,13 @@
 .section-map {
     margin-top: 100px;
     width: 100%;
-    height: 600px;
+    height: 800px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 .banner {
